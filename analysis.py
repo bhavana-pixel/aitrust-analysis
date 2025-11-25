@@ -20,15 +20,16 @@ data["average_score"] = data[question_cols].mean(axis=1)
 
 demographics = ["QID61", "QID62", "QID67"]
 
-data_clean = data.dropna(subset = demographics + ["average_score"])
+data[question_cols] = data[question_cols].apply(pd.to_numeric, errors = "coerce")
+data[question_cols] = data[question_cols].fillna(data[question_cols].mean())
 
 le = LabelEncoder()
 
 for column in demographics:
-    data_clean[column] = le.fit_transform(data_clean[column].astype(str))
+    data[column] = le.fit_transform(data[column].astype(str))
 
-feature = data_clean[demographics]
-score = data_clean["average_score"]
+feature = data[question_cols]
+score = data["average_score"]
 
 feature_train, feature_test, score_train, score_test = train_test_split(feature, score, test_size = 0.2, random_state = 42)
 
@@ -40,5 +41,14 @@ print(data.head())
 print("R2 score:", r2_score(score_test, score_prediction))
 print("MSE:", mean_squared_error(score_test, score_prediction))
  
+importances = rf.feature_importances_
+
+importance_df = pd.DataFrame({
+    "feature": feature.columns,
+    "importance":importances
+}).sort_values(by="importance", ascending = False)
+
+print("\nTop 20 most important predictors:")
+print(importance_df.head(20))
 
 
