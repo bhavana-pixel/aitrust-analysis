@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
 
 # Read excel file from group 1 survey results.
-data = pd.read_excel("group 1.xlsx");
+data = pd.read_excel("survey-results/group 1.xlsx");
 
 # Metadata column names to be removed.
 metadata_patterns = [
