@@ -6,8 +6,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
 
-# Read excel file from group 1 survey results.
-data = pd.read_excel("group 1.xlsx");
+# Read excel file from group 2 survey results.
+data = pd.read_excel("group 2.xlsx");
 
 # Metadata column names to be removed.
 metadata_patterns = [
@@ -99,6 +99,6 @@ importance_df = pd.DataFrame({
 }).sort_values(by="importance", ascending = False)
 print("\nTop 20 most important predictors:")
 
-# Average Trust Score: 0.6277
-# R2 Score: 0.62176
-# MSE: 0.027
+# Average Trust Score : 0.627
+# R2 Score: -0.55
+# MSE: 0.081
