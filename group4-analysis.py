@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
 
-# Read excel file from group 3 survey results.
+# Read excel file from group 4 survey results.
 data = pd.read_excel("group 4.xlsx");
 
 # Metadata column names to be removed.
