@@ -86,6 +86,8 @@ feature_train, feature_test, score_train, score_test=train_test_split(feature, s
 rf = RandomForestRegressor(n_estimators=300, random_state = 42)
 rf.fit(feature_train, score_train)
 score_prediction = rf.predict(feature_test)
+avg_trust = np.mean(score_prediction)
+print(avg_trust)
 
 # Printing training outputs.
 print("R2 score:", r2_score(score_test, score_prediction))
@@ -100,6 +102,6 @@ importance_df = pd.DataFrame({
 print("\nTop 20 most important predictors:")
 
 # Results
-# Average Trust Score: 0.6277
+# Average Trust Score: 0.606
 # R2 Score: 0.62176
 # MSE: 0.027
