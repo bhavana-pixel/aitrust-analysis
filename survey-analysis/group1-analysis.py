@@ -67,9 +67,8 @@ data[trust_qs] = data[trust_qs].apply(pd.to_numeric, errors="coerce")
 data[predictor] = data[predictor].fillna(data[predictor].mean())
 data[trust_qs] = data[trust_qs].fillna(data[trust_qs].mean())
 
-# Calculating and printing mean trust score.
+# Calculating mean trust score.
 data["trust_score"] = data[trust_qs].mean(axis=1)
-print("Average Trust Score:" , data["trust_score"].mean())
 
 # Isolating demographic questions for future analysis.
 demographics = ["QID61", "QID62", "QID67"]
@@ -86,8 +85,10 @@ feature_train, feature_test, score_train, score_test=train_test_split(feature, s
 rf = RandomForestRegressor(n_estimators=300, random_state = 42)
 rf.fit(feature_train, score_train)
 score_prediction = rf.predict(feature_test)
+
+# Printing average trust score. ß
 avg_trust = np.mean(score_prediction)
-print(avg_trust)
+print("Average Trust Score:" , avg_trust)
 
 # Printing training outputs.
 print("R2 score:", r2_score(score_test, score_prediction))

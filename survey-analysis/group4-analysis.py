@@ -67,9 +67,8 @@ data[trust_qs] = data[trust_qs].apply(pd.to_numeric, errors="coerce")
 data[predictor] = data[predictor].fillna(data[predictor].mean())
 data[trust_qs] = data[trust_qs].fillna(data[trust_qs].mean())
 
-# Calculating and printing mean trust score.
+# Calculating mean trust score.
 data["trust_score"] = data[trust_qs].mean(axis=1)
-print("Average Trust Score:" , data["trust_score"].mean())
 
 # Isolating demographic questions for future analysis.
 demographics = ["QID61", "QID62", "QID67"]
@@ -87,9 +86,9 @@ rf = RandomForestRegressor(n_estimators=300, random_state = 42)
 rf.fit(feature_train, score_train)
 score_prediction = rf.predict(feature_test)
 
+# Printing average trust score. 
 avg_trust = np.mean(score_prediction)
-print(avg_trust)
-
+print("Average Trust Score:" , avg_trust)
 
 # Printing training outputs.
 print("R2 score:", r2_score(score_test, score_prediction))
@@ -101,7 +100,7 @@ importance_df = pd.DataFrame({
     "feature": feature.columns,
     "importance":importances
 }).sort_values(by="importance", ascending = False)
-print("\nTop 20 most important predictors:")
+print("\nTop 20 most important predictors:", importance_df)
 
 # Results
 # Average Trust Score: 0.651
