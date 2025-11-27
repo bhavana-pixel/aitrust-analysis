@@ -1,0 +1,24 @@
+# Import plotting tool.
+import matplotlib.pyplot as plt
+
+# Trust scores from 4 groups.
+trust_scores = [0.6277, 0.627, 0.658, 0.625]
+
+# Labels for each point.
+labels = ["Group 1", "Group 2", "Group 3", "Group 4"]
+
+# Plot values.
+plt.figure (figsize=(8,5))
+plt.plot(labels, trust_scores, marker = 'o', linewidth = 2)
+
+# Title.
+plt.title ("Average Trust Scores Across 4 Groups")
+plt.xlabel("Group Number")
+plt.ylabel("Average Trust Score")
+plt.ylim(0,1)
+
+# Styling
+plt.grid(True, linestyle='--', alpha = 0.6)
+
+# Create plot
+plt.show()

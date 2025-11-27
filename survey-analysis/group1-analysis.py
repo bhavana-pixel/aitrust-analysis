@@ -82,7 +82,7 @@ feature = data[predictor]
 score = data["trust_score"]
 
 # Training test data using Random Forest.
-feature_train, feature_test, score_train, score_test = train_test_split(feature, score, test_size = 0.2, random_state = 42)
+feature_train, feature_test, score_train, score_test=train_test_split(feature, score, test_size=0.2, random_state=42)
 rf = RandomForestRegressor(n_estimators=300, random_state = 42)
 rf.fit(feature_train, score_train)
 score_prediction = rf.predict(feature_test)
