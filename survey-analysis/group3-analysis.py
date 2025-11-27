@@ -99,6 +99,7 @@ importance_df = pd.DataFrame({
 }).sort_values(by="importance", ascending = False)
 print("\nTop 20 most important predictors:")
 
+# Results
 # Average Trust Score: 0.658
 # R2 Score: 0.383
 # MSE: 0.0349
