@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 
 # Trust scores from 4 groups.
-trust_scores = [0.6277, 0.627, 0.658, 0.625]
+trust_scores = [0.606, 0.634, 0.633, 0.651]
 
 # Labels for each point.
 labels = ["Group 1", "Group 2", "Group 3", "Group 4"]
