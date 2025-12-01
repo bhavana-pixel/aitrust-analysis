@@ -46,7 +46,7 @@ data = data.applymap(lambda x: mapping.get(x,x))
 # Locating survey questions.
 question_cols = data.loc[:, "QID2" : "QID418"].columns.tolist()
 
-# Question IDs that measure individual trust level.
+# Question IDs that measure individual trust level. (Questions that answer if participant trusts AI or not.)
 trust_qs = [
     "Q1D2", "QID10", "QID12", "Q1D13", "QID178", "QID198", "QID203", "QID208",
     "QID22", "QID224", "QID254", "QID284", "QID314", "QID32", "QID324",
@@ -56,7 +56,7 @@ trust_qs = [
 # Isolating questions that match array above.
 trust_qs = [q for q in trust_qs if q in data.columns]
 
-# Isolating predictor questions.
+# Isolating predictor questions. (Questions where participants answer if they trust specific questions)
 predictor = [c for c in question_cols if c not in trust_qs]
 
 # Converting data to numerical values.
@@ -86,7 +86,7 @@ rf = RandomForestRegressor(n_estimators=300, random_state = 42)
 rf.fit(feature_train, score_train)
 score_prediction = rf.predict(feature_test)
 
-# Printing average trust score. ß
+# Printing average trust score.
 avg_trust = np.mean(score_prediction)
 print("Average Trust Score:" , avg_trust)
 
