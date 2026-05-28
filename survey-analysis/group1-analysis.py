@@ -5,6 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_squared_error
+from sklearn.linear_model import LinearRegression
 
 # Read excel file from group 1 survey results.
 data = pd.read_excel("survey-results/group 1.xlsx");
