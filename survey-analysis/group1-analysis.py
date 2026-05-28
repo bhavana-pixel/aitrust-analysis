@@ -103,6 +103,14 @@ importance_df = pd.DataFrame({
 }).sort_values(by="importance", ascending = False)
 print("\nTop 20 most important predictors:")
 
+# Linear Regression baseline
+lr = LinearRegression()
+lr.fit(feature_train, score_train)
+lr_pred = lr.predict(feature_test)
+
+print("Linear Regression R2:", r2_score(score_test, lr_pred))
+print("Linear Regression MSE:", mean_squared_error(score_test, lr_pred))
+
 # Results
 # Average Trust Score: 0.606
 # R2 Score: 0.62176
