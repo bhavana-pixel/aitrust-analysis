@@ -26,7 +26,7 @@ cols_to_drop = [col for col in data.columns if any(p in col for p in metadata_pa
 # Removing metadata columns.
 data = data.drop(columns=cols_to_drop)
 
-# Likert Scale mappings to numbers.
+# Likert Scale mapping
 mapping = {
     "Not accurate at all": 1,
     "Not at all" : 1,
